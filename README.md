@@ -1,20 +1,17 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# BucKat List 🐾⚔️
 
-# Run and deploy your AI Studio app
+A modern, minimalist RPG-style sidequest tracker with native dark mode support, smooth interactive animations, categories, and custom difficulty settings.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/84b8d516-90fe-448d-b1ae-9944582bcabc
+- **RPG-Style Sidequests**: Log your life milestones, adventures, and daily errands as immersive sidequests.
+- **Search System**: Instantly filter through your quest logs dynamically with a clean live search input.
+- **Custom Difficulties**: Assign quest tiers ranging from Trivial (10 XP) up to Epic (100 XP).
+- **Responsive Theme Engine**: Toggle seamlessly between soft-light slate tones and an immersive, eye-safe midnight dark canvas.
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- **Framework**: React 18+ (with Vite)
+- **Styling**: Tailwind CSS v4
+- **Animations**: Motion
+- **Icons**: Lucide React
