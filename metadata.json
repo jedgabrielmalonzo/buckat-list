@@ -1,0 +1,6 @@
+{
+  "name": "BucKat List",
+  "description": "A modern, minimalist RPG-style sidequest tracker with dark mode support, smooth animations, categories, and custom difficulty settings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
