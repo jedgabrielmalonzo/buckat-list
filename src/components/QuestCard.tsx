@@ -1,18 +1,17 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Trash2, 
-  Calendar, 
-  ChevronDown, 
-  ChevronUp, 
-  Check, 
-  Swords, 
+import {
+  Trash2,
+  Calendar,
+  ChevronDown,
+  ChevronUp,
+  Check,
+  Swords,
   Compass,
   AlertCircle
 } from 'lucide-react';
 import { QuestItem } from '../types';
-import { DIFFICULTY_CONFIGS, CATEGORIES } from '../constants';
-import CategoryIcon from './CategoryIcon';
+import { DIFFICULTY_CONFIGS } from '../constants';
 
 interface QuestCardProps {
   key?: string;
@@ -25,7 +24,6 @@ export default function QuestCard({ quest, onToggleComplete, onDelete }: QuestCa
   const [isExpanded, setIsExpanded] = useState(false);
 
   const difficulty = DIFFICULTY_CONFIGS[quest.difficulty];
-  const category = CATEGORIES.find(c => c.value === quest.category);
 
   // Formatting date nicely
   const formatDate = (dateString?: string) => {
@@ -41,22 +39,20 @@ export default function QuestCard({ quest, onToggleComplete, onDelete }: QuestCa
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3 }}
-      className={`group relative bg-white dark:bg-zinc-900/80 border rounded-2xl transition-all duration-300 overflow-hidden ${
-        quest.isCompleted 
-          ? 'border-slate-100 dark:border-zinc-900/60 shadow-none' 
+      className={`group relative bg-white dark:bg-zinc-900/80 border rounded-2xl transition-all duration-300 overflow-hidden ${quest.isCompleted
+          ? 'border-slate-100 dark:border-zinc-900/60 shadow-none'
           : 'border-slate-200/80 dark:border-zinc-800/80 hover:border-blue-500/30 dark:hover:border-blue-500/30 shadow-sm hover:shadow-md'
-      }`}
+        }`}
       id={`quest-card-${quest.id}`}
     >
       <div className="p-4 sm:p-5 flex items-start gap-4">
         {/* Satisfying custom checkbox */}
         <button
           onClick={() => onToggleComplete(quest.id)}
-          className={`flex-shrink-0 mt-0.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 cursor-pointer ${
-            quest.isCompleted
+          className={`flex-shrink-0 mt-0.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 cursor-pointer ${quest.isCompleted
               ? 'bg-blue-500 border-blue-500 text-white shadow-sm shadow-blue-500/20'
               : 'border-slate-300 dark:border-zinc-700 hover:border-blue-500 dark:hover:border-blue-500/80 bg-transparent'
-          }`}
+            }`}
           aria-label={quest.isCompleted ? "Mark as incomplete" : "Mark as completed"}
           id={`toggle-${quest.id}`}
         >
@@ -87,24 +83,15 @@ export default function QuestCard({ quest, onToggleComplete, onDelete }: QuestCa
             <span className={`inline-flex items-center text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full border ${difficulty.bgColor} ${difficulty.textColor} ${difficulty.borderColor}`}>
               {difficulty.label} ({quest.xp} XP)
             </span>
-
-            {/* Category Badge */}
-            {category && (
-              <span className="inline-flex items-center gap-1 text-[10px] font-mono text-slate-500 dark:text-zinc-400">
-                <CategoryIcon name={category.icon} className="w-3 h-3 text-slate-400 dark:text-zinc-500" />
-                <span>{category.label}</span>
-              </span>
-            )}
           </div>
 
           {/* Title */}
-          <h4 
+          <h4
             onClick={() => setIsExpanded(!isExpanded)}
-            className={`font-display text-base font-semibold leading-snug cursor-pointer transition-all duration-200 select-none ${
-              quest.isCompleted 
-                ? 'text-slate-400 dark:text-zinc-500 line-through font-normal' 
+            className={`font-display text-base font-semibold leading-snug cursor-pointer transition-all duration-200 select-none ${quest.isCompleted
+                ? 'text-slate-400 dark:text-zinc-500 line-through font-normal'
                 : 'text-slate-800 dark:text-zinc-100 hover:text-blue-500 dark:hover:text-blue-400'
-            }`}
+              }`}
           >
             {quest.title}
           </h4>
